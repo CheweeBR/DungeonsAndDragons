@@ -1,5 +1,9 @@
 const spell = document.querySelector('#search');
 const listSearch = document.querySelector('#listSearch');
+const information = document.querySelector('#information')
+
+spell.value = "";
+
 
 function searchSpells(speel) {
     const apiUrl = "https://www.dnd5eapi.co/api/spells/?name=" + speel;
@@ -12,7 +16,10 @@ function searchSpells(speel) {
             return response.json();
         })
         .then(data => {
-            return data.results; 
+            const filteredSpells = data.results.filter(spell => {
+                return startsWithCaseInsensitive(spell.name, speel);
+            });
+            return filteredSpells;
         })
         .catch(error => {
             console.error('Error:', error);
@@ -20,18 +27,73 @@ function searchSpells(speel) {
         });
 }
 
+function startsWithCaseInsensitive(fullString, searchString) {
+    return fullString.toLowerCase().startsWith(searchString.toLowerCase());
+}
+
 function updateList(spellList) {
     listSearch.innerHTML = ''; // Limpa a lista anterior
 
     spellList.forEach(spell => {
         let magia = document.createElement('li');
-        magia.innerText = spell.name;
+        let link = document.createElement('a');
+        link.id = 'option';
+        link.innerText = spell.name;
+        link.href = `javascript:void(0);`;
+        link.addEventListener('click', () => {
+            informationSpell(spell);
+        });
+        magia.appendChild(link);
         listSearch.appendChild(magia);
     });
 }
 
+function informationSpell(spell) {
+
+    var myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+    };
+
+    listSearch.innerHTML = '';
+    
+    fetch("https://www.dnd5eapi.co/api/spells/" + spell.index, requestOptions)
+    .then(response => response.json())
+    .then(result => exibirMagia(result))
+    .catch(error => console.log('error', error));
+}
+
+function exibirMagia(spell) {
+    listSearch.innerHTML = '';
+
+    let spellClasses = spell.classes.map(cls => cls.name).join(', ');
+
+    information.setAttribute("style", "display: block;");
+    let detalhes = `
+    <div id="spellNamBox">
+    <h3 id="spellName">${spell.name}</h3>
+    </div>
+    <div id="othersInformation">
+    <p><strong>Escola:</strong> ${spell.school.name} | Classe: ${spellClasses}</p>
+    <p><strong>Nível:</strong> ${spell.level}</p>
+    <p><strong>Tempo de Conjuração:</strong> ${spell.casting_time}</p>
+    <p><strong>Alcance:</strong> ${spell.range}</p>
+    <p><strong>Componentes:</strong> ${spell.components.join(', ')}</p>
+    <p><strong>Duração:</strong> ${spell.duration}</p>
+    <p><strong>Descrição:</strong> ${spell.desc.join('<br>')}</p>
+    </div>
+    `;
+    let spellDetails = document.createElement('div');
+    spellDetails.innerHTML = detalhes;
+    information.appendChild(spellDetails)
+}
+
 function clearList() {
-    listSearch.innerHTML = ''; // Limpa a lista anterior
+    listSearch.innerHTML = '';
+    information.innerHTML = '';
 }
 
 spell.addEventListener('input', () => {
@@ -47,9 +109,10 @@ spell.addEventListener('input', () => {
                 console.log("Magia não encontrada.");
                 clearList();
             } else {
-                console.log("Magias encontradas:");
+                console.log("Magias encontradas.");
+                information.innerHTML = '';
+                information.setAttribute("style", "display: none;");
                 spellList.forEach(spell => {
-                    console.log(spell.name);
                     updateList(spellList);    
                 });
             }

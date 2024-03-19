@@ -20,7 +20,49 @@ body {
 #textMain {
     font-size: 50px;
     text-shadow: 2px 2px 4px rgba(173, 172, 172, 0.8);
+    animation: shadowAnimation 3.2s infinite;
 }
+
+@keyframes shadowAnimation {
+    0% {
+        text-shadow: 2px 2px 4px rgba(173, 172, 172, 0.8);
+    }
+    50% {
+        text-shadow: 2px 2px 14px rgba(173, 172, 172, 0.8);
+    }
+    100% {
+        text-shadow: 2px 2px 4px rgba(173, 172, 172, 0.8);
+    }
+}
+
+#information {
+    display: none;
+    margin-top: 20px;
+    background-color: #e0d8d8;
+    border-top: 2px solid rgb(102, 102, 102);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: rgb(29, 29, 29); 
+}
+
+#information p {
+    font-size: 20px;
+    margin-bottom: 2%;
+    margin-left: 2%;
+}
+
+#spellNamBox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid rgb(102, 102, 102);
+}
+
+#spellName{
+    font-size: 30px;
+}
+
 
 #textSearch {
     font-size: 30px;
@@ -29,6 +71,11 @@ body {
 
 #textSearch:hover {
     text-shadow: 2px 2px 4px rgba(173, 172, 172, 0.8);
+}
+
+#spellSuggestions{
+    height: 75px;
+    width: 85%;
 }
 
 #CampoPesquisa {
@@ -65,4 +112,9 @@ body {
     outline: none; /* Remove a borda de foco padrão */
     border-color: #ffffff; /* Cor da borda ao focar */
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Sombra ao focar */
+}
+
+#option {
+    font-size: 25px;
+    color: white;
 }
