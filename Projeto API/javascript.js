@@ -20,8 +20,18 @@ function searchSpells(speel) {
         });
 }
 
-function updateList(s) {
+function updateList(spellList) {
+    listSearch.innerHTML = ''; // Limpa a lista anterior
 
+    spellList.forEach(spell => {
+        let magia = document.createElement('li');
+        magia.innerText = spell.name;
+        listSearch.appendChild(magia);
+    });
+}
+
+function clearList() {
+    listSearch.innerHTML = ''; // Limpa a lista anterior
 }
 
 spell.addEventListener('input', () => {
@@ -30,15 +40,17 @@ spell.addEventListener('input', () => {
 
     if(spellValue === '') {
         console.log("valor vazio");
+        clearList();
     } else {
         searchSpells(spellValue).then(spellList => {
             if(spellList.length === 0) {
                 console.log("Magia não encontrada.");
+                clearList();
             } else {
                 console.log("Magias encontradas:");
                 spellList.forEach(spell => {
                     console.log(spell.name);
-                    updateList();    
+                    updateList(spellList);    
                 });
             }
         });     
