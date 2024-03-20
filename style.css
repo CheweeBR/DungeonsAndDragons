@@ -1,6 +1,6 @@
 body {
     background-color: rgb(29, 29, 29);
-    color: rgba(255, 255, 255, 0.904);
+    color: #e0d8d8;
     font-family: "Aladin", system-ui;
 }
 
@@ -51,6 +51,31 @@ body {
     margin-left: 2%;
 }
 
+#listSearch {
+    margin-right: 40px;
+    width: 80%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column ;
+  }
+  #listSearch li {
+    margin-bottom: 5px;
+  }
+  #listSearch a {
+    text-decoration: none;
+    font-size: 25px;
+    color: #333;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #e0d8d8;
+    transition: background-color 0.3s ease;
+  }
+  
+  #listSearch a:hover {
+    background-color: #e3e3e3;
+  }
+
 #spellNamBox {
     width: 100%;
     display: flex;
@@ -79,7 +104,7 @@ body {
 }
 
 #CampoPesquisa {
-    margin-bottom: 5%;
+    margin-bottom: 1%;
     height: 75px;
     width: 85%;
     display: flex;

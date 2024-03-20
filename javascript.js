@@ -96,6 +96,8 @@ function clearList() {
     information.innerHTML = '';
 }
 
+
+
 spell.addEventListener('input', () => {
     
     const spellValue = spell.value.toLowerCase().trim();
