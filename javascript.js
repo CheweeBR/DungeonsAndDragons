@@ -96,6 +96,25 @@ function clearList() {
     information.innerHTML = '';
 }
 
+function notFound() {
+    let divHTML = `
+    <div>
+        <p id="notFind"> Magia não localizada.
+    </div>`
+    let div = document.createElement('div');
+    div.innerHTML = divHTML;
+    listSearch.appendChild(div);
+}
+
+function campoVazio() {
+    let divHTML = `
+    <div>
+        <p id="notFind"> Valor de busca vazia.
+    </div>`
+    let div = document.createElement('div');
+    div.innerHTML = divHTML;
+    listSearch.appendChild(div);
+}
 
 
 spell.addEventListener('input', () => {
@@ -103,13 +122,15 @@ spell.addEventListener('input', () => {
     const spellValue = spell.value.toLowerCase().trim();
 
     if(spellValue === '') {
-        console.log("valor vazio");
         clearList();
+        campoVazio();
     } else {
         searchSpells(spellValue).then(spellList => {
             if(spellList.length === 0) {
                 console.log("Magia não encontrada.");
                 clearList();
+                notFound();
+
             } else {
                 console.log("Magias encontradas.");
                 information.innerHTML = '';

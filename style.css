@@ -17,6 +17,11 @@ body {
     border-radius: 5px;
 }
 
+#notFind {
+    color: red;
+    font-size: 20px;
+}
+
 #textMain {
     font-size: 50px;
     text-shadow: 2px 2px 4px rgba(173, 172, 172, 0.8);
