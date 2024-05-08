@@ -105,6 +105,7 @@ function SearchMagiaComponent({ handleSearch, setResultadosPesquisa }) {
   return (
     <div id="CampoPesquisa">
       <p id="textSearch">Spell:</p>
+      <div id="barra-busca">
       <input
         type="text"
         name="search"
@@ -159,6 +160,7 @@ function SearchMagiaComponent({ handleSearch, setResultadosPesquisa }) {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }
