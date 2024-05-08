@@ -60,6 +60,7 @@
 }
 #listSearch li {
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 #searchAparence {
@@ -118,6 +119,7 @@
 
 
 #textSearch {
+  margin-left: 1%;
   font-size: 30px;
   transition-duration: 0.3s;
 }
@@ -131,11 +133,18 @@
   width: 85%;
 }
 
+#CampoPesquisaGeral {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 #CampoPesquisa {
-  margin-top: 1%;
   margin-bottom: 5%;
   height: 75px;
-  width: 85%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -144,10 +153,19 @@
   border-radius: 10px;
 }
 
+#barra-busca {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30%;
+}
+
 #search {
   display: flex;
   height: 30px;
-  width: 70%;
+  width: 99%;
   color:aliceblue;
   background-color: rgb(128, 127, 127);
   border: 2px solid transparent; 

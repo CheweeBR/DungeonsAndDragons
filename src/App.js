@@ -69,10 +69,9 @@ function App() {
   );
 }
 
-function SearchMagiaComponent({ handleSearch, setResultadosPesquisa }) {
+function SearchMagiaComponent({ handleSearch, magiaSelecionada }) {
   const [termoPesquisa, setTermoPesquisa] = useState("");
   const [sugestoesMagias, setSugestoesMagias] = useState([]);
-  const [magiaSelecionada, setMagiaSelecionada] = useState(null);
   const timeoutRef = useRef(null);
 
   const handleInputChange = (event) => {
@@ -89,7 +88,7 @@ function SearchMagiaComponent({ handleSearch, setResultadosPesquisa }) {
           if (sugestoes && sugestoes.length > 0) {
             setSugestoesMagias(sugestoes);
           } else {
-            setSugestoesMagias([]);
+            setSugestoesMagias([{ name: "Magia não encontrada" }]);
           }
         });
       } else {
@@ -98,69 +97,92 @@ function SearchMagiaComponent({ handleSearch, setResultadosPesquisa }) {
     }, 300);
   };
 
-  const handleSpellSelection = (magia) => {
-    setMagiaSelecionada(magia);
-  };
+  return (
+    <div id="CampoPesquisaGeral">
+      <div id="CampoPesquisa">
+        <p id="textSearch">Spell:</p>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          value={termoPesquisa}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div id="barra-busca">
+        <ul id="listSearch">
+          {sugestoesMagias.map((magia, index) => (
+            <li key={index} id="searchAparence">
+              <a
+                id="searchAparence"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  magiaSelecionada(magia.name);
+                }}
+              >
+                {magia.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function MagiaInfoComponent({ magiaSelecionada }) {
+  const [detalhesMagia, setDetalhesMagia] = useState(null);
+
+  useEffect(() => {
+    if (magiaSelecionada) {
+      // Aqui você faria a busca detalhada na API com base na magia selecionada
+      fetch(`URL_DA_SUA_API/${magiaSelecionada.id}`)
+        .then((response) => response.json())
+        .then((data) => setDetalhesMagia(data))
+        .catch((error) =>
+          console.error("Erro ao buscar detalhes da magia:", error)
+        );
+    }
+  }, [magiaSelecionada]);
 
   return (
-    <div id="CampoPesquisa">
-      <p id="textSearch">Spell:</p>
-      <div id="barra-busca">
-      <input
-        type="text"
-        name="search"
-        id="search"
-        value={termoPesquisa}
-        onChange={handleInputChange}
-      />
-      {}
-      <></>
-      <ul id="listSearch">
-        {sugestoesMagias.map((magia, index) => (
-          <li key={index} id="searchAparence">
-            <button
-              id="searchAparence"
-              onClick={() => handleSpellSelection(magia)}
-            >
-              {magia.name}
-            </button>
-          </li>
-        ))}
-      </ul>
-      {magiaSelecionada && (
+    <div>
+      <p>Magia selecionada: {magiaSelecionada.name}</p>
+      {detalhesMagia ? (
         <div>
-          <p>Magia selecionada: {magiaSelecionada.name}</p>
           <div id="spellNamBox">
-            <h3 id="spellName">${magiaSelecionada.name}</h3>
+            <h3 id="spellName">${detalhesMagia.name}</h3>
           </div>
           <div id="othersInformation">
             <p>
-              <strong>Escola:</strong> ${magiaSelecionada.school.name}
+              <strong>Escola:</strong> ${detalhesMagia.school.name}
             </p>
             <p>
-              <strong>Nível:</strong> ${magiaSelecionada.level}
+              <strong>Nível:</strong> ${detalhesMagia.level}
             </p>
             <p>
               <strong>Tempo de Conjuração:</strong> $
-              {magiaSelecionada.casting_time}
+              {detalhesMagia.casting_time}
             </p>
             <p>
-              <strong>Alcance:</strong> ${magiaSelecionada.range}
+              <strong>Alcance:</strong> ${detalhesMagia.range}
             </p>
             <p>
               <strong>Componentes:</strong> $
-              {magiaSelecionada.components.join(", ")}
+              {detalhesMagia.components.join(", ")}
             </p>
             <p>
-              <strong>Duração:</strong> ${magiaSelecionada.duration}
+              <strong>Duração:</strong> ${detalhesMagia.duration}
             </p>
             <p>
-              <strong>Descrição:</strong> ${magiaSelecionada.desc.join("<br>")}
+              <strong>Descrição:</strong> ${detalhesMagia.desc.join("<br>")}
             </p>
           </div>
         </div>
+      ) : (
+        <p>Carregando detalhes da magia...</p>
       )}
-      </div>
     </div>
   );
 }
