@@ -18,16 +18,27 @@ export default function Main() {
     return (
         <div className="CampoMain">
             <div className="TextoDeApresentacao">
-                <h2> Bem-vindo ao Fórum de D&D jovem {user}!</h2>
+                <h2>Bem-vindo ao Wiki de Dungeons and Dragons jovem {user}!</h2>
                 <br/>
-                <p className="textoPrincipal"> 
-                    Prepare seus dados, afie suas espadas, e mergulhe no vasto universo de Dungeons & Dragons! 
+                <p className="textoPrincipal">
+                    Mergulhe no universo de Dungeons & Dragons com nosso Wiki abrangente e interativo! 
                     <br/>
-                    Este é o lugar onde aventureiros de todas as classes, raças e níveis se reúnem para compartilhar histórias épicas, discutir estratégias, trocar dicas de criação de personagens, e muito mais.
-                    Que você seja um Mestre experiente ou um jogador iniciante, aqui você encontrará uma comunidade vibrante pronta para ajudar, inspirar e explorar novos mundos ao seu lado. Na Taverna do Aventureiro, cada post é uma nova aventura esperando para acontecer.
-                    Puxe uma cadeira, peça uma caneca de hidromel virtual, e vamos construir juntos a próxima grande campanha!
-                    Prepare-se para o inesperado, pois no D&D, as únicas limitações são a sua imaginação e a sorte dos dados.
+                    <br/>
+                    Este é o lugar ideal para explorar todas as facetas do jogo, incluindo detalhes sobre <strong>Raças</strong>, <strong>Classes</strong>, <strong>Feitiços</strong> e <strong>Equipamentos</strong>.
+                    <br/>
+                    <br/>
+                    <strong>Raças:</strong> Descubra as diversas raças que você pode escolher para seu personagem, cada uma com suas habilidades únicas e histórias fascinantes. <br/>
+                    <strong>Classes:</strong> Conheça as diferentes classes que definem as habilidades e o papel do seu personagem nas aventuras, desde guerreiros destemidos até magos poderosos. <br/>
+                    <strong>Feitiços:</strong> Explore uma ampla gama de feitiços e magias, com descrições detalhadas e efeitos, para aprimorar suas estratégias e criar combinações mágicas. <br/>
+                    <strong>Equipamentos:</strong> Consulte nossa lista de equipamentos e itens mágicos, essenciais para equipar seu personagem e enfrentar desafios épicos. <br/>
+                    <br/>
+                    Nosso Wiki oferece informações precisas e atualizadas, tanto para jogadores veteranos quanto para iniciantes. 
+                    <br />
+                    Prepare-se para desbravar masmorras, enfrentar dragões e viver aventuras inesquecíveis. 
+                    <br/>
+                    Aventura aguarda. Que comece a jornada com o Wiki do D&D como seu guia!
                 </p>
+                <h2>Não se esqueça de realizar seu <a className="textLogin">Login</a> para ter uma experiencia Personalizada.</h2>
             </div>
         </div>
     )

@@ -11,13 +11,37 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 2%;
+    font-size: 1.2em;
+    width: 50%;
+    border: 1px solid #7a7a7a;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    font-family: "Edu VIC WA NT Beginner", cursive; 
 }
 
 .textoPrincipal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    width: 50%;
+    text-align: justify;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 70%;
+    font-family: "Edu VIC WA NT Beginner", cursive;
+}
+
+.textLogin {
+    font-weight: bold;
+    font-family: "Edu VIC WA NT Beginner", cursive;
+    color: #0998ff;
+    cursor: pointer; 
+}
+
+.textLogin:hover {
+    text-decoration: underline;
+}
+
+.textLogin:active {
+    color: #afafaf;
 }
