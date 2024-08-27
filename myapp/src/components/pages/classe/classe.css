@@ -1,0 +1,79 @@
+
+.campoClasse {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 80vh;
+}
+
+.modalClasses {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 70%;
+    border: 1px solid #7a7a7a;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    height: 80vh;
+    font-family: "Edu VIC WA NT Beginner", cursive;
+    border-radius: 8px;
+    margin-top: 2%;
+}
+
+.descricaoClasse {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    font-size: 1.2em;
+    width: 70%;
+
+}
+
+.textoClasse {
+    text-align: justify;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 85%;
+    font-family: "Edu VIC WA NT Beginner", cursive;
+}
+
+.listaClasse {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 1.2em;
+    width: 70%;
+    border: 1px solid #7a7a7a;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    font-family: "Edu VIC WA NT Beginner", cursive; 
+}
+
+.modalClasses {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+}
+
+.classeItem {
+    flex: 23%;
+    box-sizing: border-box;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    padding-top: 8%;
+    background-color: #575757;
+    border: 1px solid #7a7a7a;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 180px;
+}

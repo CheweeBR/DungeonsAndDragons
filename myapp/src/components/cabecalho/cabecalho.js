@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import "./cabecalho.css";
 
-export default function Cabecalho() {
+export default function Cabecalho({ onMenuChange }) {
     const [select, setSelect] = useState("Menu");
+
+    const handleClick = (page) => {
+        setSelect(page);
+        onMenuChange(page);
+    };
 
     return (
         <div className="campoCabecalho">
@@ -10,31 +15,31 @@ export default function Cabecalho() {
             <div className="cabecalhoList">
                 <button 
                     className={select === "Menu" ? "cabecalhoButton-active" : "cabecalhoButton"}
-                    onClick={() => setSelect("Menu")}
+                    onClick={() => handleClick("Menu")}
                 >
                     Menu
                 </button>
                 <button 
                     className={select === "Raças" ? "cabecalhoButton-active" : "cabecalhoButton"}
-                    onClick={() => setSelect("Raças")}
+                    onClick={() => handleClick("Raças")}
                 >
                     Raças
                 </button>
                 <button 
                     className={select === "Classes" ? "cabecalhoButton-active" : "cabecalhoButton"}
-                    onClick={() => setSelect("Classes")}
+                    onClick={() => handleClick("Classes")}
                 >
                     Classes
                 </button>
                 <button 
                     className={select === "Feitiços" ? "cabecalhoButton-active" : "cabecalhoButton"}
-                    onClick={() => setSelect("Feitiços")}
+                    onClick={() => handleClick("Feitiços")}
                 >
                     Feitiços
                 </button>
                 <button 
                     className={select === "Equipamentos" ? "cabecalhoButton-active" : "cabecalhoButton"}
-                    onClick={() => setSelect("Equipamentos")}
+                    onClick={() => handleClick("Equipamentos")}
                 >
                     Equipamentos
                 </button>
