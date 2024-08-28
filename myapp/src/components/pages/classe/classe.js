@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import ClasseDetails from "./classeDetails/classeDetails";
 import "./classe.css";
 
 export default function Classes() {
     const [classes, setClasses] = useState([]);
+    const [selectedClass, setSelectedClass] = useState(null);
 
     useEffect(() => {
         fetch('https://www.dnd5eapi.co/api/classes')
@@ -11,7 +13,6 @@ export default function Classes() {
             .catch((error) => console.error('Erro ao buscar as classes:', error));
     }, []);
 
-    // Função para determinar o caminho da imagem com base no nome da classe
     const getClassImage = (className) => {
         try {
             return require(`../../../assets/classes/${className.toLowerCase()}.png`);
@@ -19,7 +20,14 @@ export default function Classes() {
             console.error('Erro ao buscar a imagem da classe:', error);
             return '';
         }
-        
+    };
+
+    const handleClassClick = (classe) => {
+        setSelectedClass(classe);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedClass(null);
     };
 
     return (
@@ -37,15 +45,17 @@ export default function Classes() {
                         className="classeItem"
                         style={{
                             backgroundImage: `url(${getClassImage(classe.name)})`,
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
                         }}
+                        onClick={() => handleClassClick(classe)}
                     >
-                        <h3>{classe.name}</h3>
+                        <h3 className="nomeClasse">{classe.name}</h3>
                         <p>{classe.desc}</p>
                     </div>
                 ))}
             </div>
+            {selectedClass && (
+                <ClasseDetails classe={selectedClass} onClose={handleCloseModal} />
+            )}
         </div>
     );
 }

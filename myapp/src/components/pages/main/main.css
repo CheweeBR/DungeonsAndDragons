@@ -3,7 +3,13 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    height: 80vh;
+    height: 84.9vh;
+    background-image: url("../../../assets/background-Menu.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 119%;
+    overflow: auto;
+    filter: brightness(95%);
 }
 
 .TextoDeApresentacao {
@@ -11,14 +17,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2%;
+    margin-top: 1%;
     font-size: 1.2em;
     width: 50%;
     border: 1px solid #7a7a7a;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 8px;
-    font-family: "Edu VIC WA NT Beginner", cursive; 
+    font-family: "Edu VIC WA NT Beginner", cursive;
 }
 
 .textoPrincipal {

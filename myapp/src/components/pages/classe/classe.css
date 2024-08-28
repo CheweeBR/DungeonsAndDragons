@@ -9,17 +9,17 @@
 
 .modalClasses {
     display: flex;
-    flex-direction: column;
-    justify-content: start;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
     align-items: center;
     width: 70%;
     border: 1px solid #7a7a7a;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
     height: 80vh;
     font-family: "Edu VIC WA NT Beginner", cursive;
     border-radius: 8px;
-    margin-top: 2%;
+    overflow: auto;
 }
 
 .descricaoClasse {
@@ -27,7 +27,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2%;
     font-size: 1.2em;
     width: 70%;
 
@@ -35,11 +34,10 @@
 
 .textoClasse {
     text-align: justify;
-    font-size: 1em;
+    font-size: 1.1em;
     line-height: 1.6;
     margin-top: 1%;
-    margin-bottom: 1%;
-    width: 85%;
+    width: 90%;
     font-family: "Edu VIC WA NT Beginner", cursive;
 }
 
@@ -48,9 +46,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 1%;
     margin-bottom: 1%;
-    font-size: 1.2em;
+    font-size: 1.3em;
     width: 70%;
     border: 1px solid #7a7a7a;
     background-color: rgba(0, 0, 0, 0.6);
@@ -67,13 +64,61 @@
 
 .classeItem {
     flex: 23%;
+    margin: 1%;
     box-sizing: border-box;
     margin-right: 1%;
     margin-bottom: 1%;
     padding-top: 8%;
-    background-color: #575757;
-    border: 1px solid #7a7a7a;
     border-radius: 8px;
     text-align: center;
     min-width: 180px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    background-size: 112%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.classeItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.5));
+    z-index: 1;
+}
+
+.classeItem::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.classeItem:hover::after {
+    opacity: 1;
+}
+
+.classeItem > * {
+    position: relative;
+    z-index: 3;
+}
+
+.classeItem:hover {
+    background-size: 109%;
+}
+
+.nomeClasse {
+    padding: 1%;
+    background-color: rgba(0, 0, 0, 0.6);
 }
