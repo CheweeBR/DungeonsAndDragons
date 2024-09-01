@@ -37,12 +37,6 @@ export default function Cabecalho({ onMenuChange }) {
                 >
                     Feitiços
                 </button>
-                <button 
-                    className={select === "Equipamentos" ? "cabecalhoButton-active" : "cabecalhoButton"}
-                    onClick={() => handleClick("Equipamentos")}
-                >
-                    Equipamentos
-                </button>
             </div>
         </div>
     );

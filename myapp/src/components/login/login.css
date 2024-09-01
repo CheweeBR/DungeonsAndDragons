@@ -1,0 +1,79 @@
+.LoginComponent {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    color: #ffffff; 
+}
+
+.LoginComponent h2 {
+    margin-bottom: 20px;
+}
+
+.LoginComponent form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LoginComponent form div {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.LoginComponent form input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 250px;
+}
+
+.LoginComponent form button {
+    padding: 10px 20px;
+    background-color: #ff5733; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.LoginComponent form button:hover {
+    background-color: #fcb39f; 
+}
+
+.loginBackground {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 70%;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+
+.closeLogin {
+    position: absolute;
+    top: 17%;
+    right: 36%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.closeLogin:hover {
+    color: #ff5733;
+}
