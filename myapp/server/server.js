@@ -18,6 +18,10 @@ app.use('/api/data', dataRoutes);
 
 app.use(errorHandler);
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI, { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true, 
+  maxPoolSize: 10 
+})
   .then(() => app.listen(process.env.PORT, () => console.log(`Servidor rodando na porta ${process.env.PORT}`)))
   .catch(err => console.log(err));
