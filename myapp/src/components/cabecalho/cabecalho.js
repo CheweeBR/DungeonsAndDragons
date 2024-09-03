@@ -5,7 +5,7 @@ export default function Cabecalho({ onMenuChange }) {
     const [select, setSelect] = useState("Menu");
 
     const handleClick = (page) => {
-        console.log("Selecionado:", page); // Adicionando log para verificar a página selecionada
+        console.log("Selecionado:", page);
         setSelect(page);
         onMenuChange(page);
     };

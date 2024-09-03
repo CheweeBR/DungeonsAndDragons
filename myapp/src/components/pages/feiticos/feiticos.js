@@ -24,8 +24,8 @@ export default function Feiticos() {
                     handleSearch={handleSearch}
                     setResultadosPesquisa={setResultadosPesquisa}
                     setMagiaSelecionada={handleMagiaSelecionada}
-                    exibirListar={exibirListar} // Passar a função exibirListar
-                    componenteAtivo={componenteAtivo} // Passar o estado do componente ativo
+                    exibirListar={exibirListar} 
+                    componenteAtivo={componenteAtivo} 
                 />
             );
         } else {
