@@ -4,6 +4,7 @@ import Classes from './components/pages/classe/classe';
 import Racas from './components/pages/racas/racas';
 import Feiticos from './components/pages/feiticos/feiticos';
 import Cabecalho from './components/cabecalho/cabecalho';
+import ConfigMenu from './components/configMenu/configMenu';
 import './App.css';
 
 function App() {
@@ -14,13 +15,14 @@ function App() {
     console.log(page);
   }
 
+
   const renderPage = () => {
     switch (activePage) {
-      case 'Raças':
+      case 'Racas':
         return <Racas />;
       case 'Classes':
         return <Classes />;
-      case 'Feitiços':
+      case 'Feiticos':
         return <Feiticos />;
       case 'Equipamentos':
       default:
@@ -32,6 +34,7 @@ function App() {
     <div className='layerMain'> 
       <Cabecalho onMenuChange={trocaPage} />
       {renderPage()}
+      <ConfigMenu />
     </div>
   );
 }

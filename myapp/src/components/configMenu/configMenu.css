@@ -1,0 +1,72 @@
+.ConfigMenu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 5%;
+    height: 10%;
+    top: 88%;
+    left: 1%;
+    border-radius: 50%;
+    background-color: rgb(39, 39, 39);
+    border: 3px solid rgb(102, 102, 102);
+    font-family: "Edu VIC WA NT Beginner", cursive;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.ConfigMenu button {
+    padding: 10px;
+    background-color: rgb(128, 127, 127);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+}
+
+.ConfigMenu button:hover {
+    background-color: rgb(102, 102, 102);
+}
+
+.menuDropdown {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    background-color: rgb(39, 39, 39);
+    border: 3px solid rgb(102, 102, 102);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.menuDropdown button {
+    padding: 8px;
+    background-color: rgb(128, 127, 127);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.menuDropdown button:hover {
+    background-color: rgb(102, 102, 102);
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    text-align: center;
+}

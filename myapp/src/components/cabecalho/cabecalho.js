@@ -5,6 +5,7 @@ export default function Cabecalho({ onMenuChange }) {
     const [select, setSelect] = useState("Menu");
 
     const handleClick = (page) => {
+        console.log("Selecionado:", page); // Adicionando log para verificar a página selecionada
         setSelect(page);
         onMenuChange(page);
     };
@@ -15,25 +16,25 @@ export default function Cabecalho({ onMenuChange }) {
             <div className="cabecalhoList">
                 <button 
                     className={select === "Menu" ? "cabecalhoButton-active" : "cabecalhoButton"}
-                    onClick={() => handleClick("Menu")}
+                    onClick={() => handleClick("Main")} 
                 >
                     Menu
                 </button>
                 <button 
-                    className={select === "Raças" ? "cabecalhoButton-active" : "cabecalhoButton"}
-                    onClick={() => handleClick("Raças")}
+                    className={select === "Racas" ? "cabecalhoButton-active" : "cabecalhoButton"}
+                    onClick={() => handleClick("Racas")} 
                 >
                     Raças
                 </button>
                 <button 
                     className={select === "Classes" ? "cabecalhoButton-active" : "cabecalhoButton"}
-                    onClick={() => handleClick("Classes")}
+                    onClick={() => handleClick("Classes")} 
                 >
                     Classes
                 </button>
                 <button 
-                    className={select === "Feitiços" ? "cabecalhoButton-active" : "cabecalhoButton"}
-                    onClick={() => handleClick("Feitiços")}
+                    className={select === "Feiticos" ? "cabecalhoButton-active" : "cabecalhoButton"}
+                    onClick={() => handleClick("Feiticos")} 
                 >
                     Feitiços
                 </button>

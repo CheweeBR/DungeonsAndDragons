@@ -5,7 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const authRoutes = require('./routes/authRoutes');
 const dataRoutes = require('./routes/dataRoutes');
-const { errorHandler } = require('./middleware/errorMiddleware');
+const errorHandler = require('./middleware/errorMiddleware');
 
 const app = express();
 

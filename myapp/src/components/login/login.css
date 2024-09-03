@@ -77,3 +77,9 @@
 .closeLogin:hover {
     color: #ff5733;
 }
+
+.errorMSG {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
